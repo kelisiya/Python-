@@ -21,10 +21,10 @@
 
 ## 更新日志
 
-### 2016.12.05
+-### 2016.12.05
 实现了下拉菜单的操作 [代码链接](https://github.com/kelisiya/Python-brains/blob/master/python%20brain/pyqt_test1.py)
 
-### 2017.3.30
+-### 2017.3.30
 - 具有社团结构的网络(Networks with Community Structure)：
    - 定义：对于一个图G而言，如果其中有一个完全子图（任意两个节点之间均存在边），节点数是k，那么这个完全子图就可称为一个k-clique。进而，如果两个k-clique之间存在k-1个共同的节点，那么就称这两个clique是“相邻”的。彼此相邻的这样一串clique构成最大集合，就可以称为一个社区，且社区是可以重叠的；
    - NetworkX库：k_ clique_ communities(G, k, cliques=None)[sorce](https://networkx.github.io/documentation/networkx-1.10/_modules/networkx/algorithms/community/kclique.html#k_clique_communities)
