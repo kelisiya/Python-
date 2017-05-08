@@ -1,28 +1,51 @@
-## 一、开通前提
-### 1.阿里云官网：[https://www.aliyun.com](https://www.aliyun.com)
+# 基于Python3实现人脑网络链接系统
 
-### 2.开通OSS服务（存储手段，收费比较低），新建的Bucket选择“华东2”
+* * *
 
-### 3.开通阿里云机器学习（免费使用）
-#### (1)目前提供：Tensorflow，MXNet，Caffe三种框架
-#### (2)GPU：M40
+# 项目工作
 
-## 二、开通流程
-### 1.注册账号（省略）
+- 基于NetworkX库实现相关方法：
+   - 具有社团结构的网络
+   - 富俱乐部系数
+   - 协同性
+   - 中心性度量
+   - 最大块模块度
+   - 子图中心度
+   - 网络动态特性和扰动的度量
+  
+- 基于pyqt5库实现系统的整合：
+	- 搭建前台系统	
+	- 实现各个按钮和系统方法的连接
+	- 返回结果
+* * *
 
-### 2.开通OSS服务：
-* 链接：[OSS服务(默认按量付费，数量为1)](https://www.aliyun.com/product/oss)
-* 新建Bucket，选择“华东2”，之后就可以上传自己的数据了
-
-
-### 3.申请机器学习PAI
-* 链接：[机器学习PAI](https://data.aliyun.com/product/learn)
-* 点击“申请公测”
-* 如果有需要实名认证的就进行实名认证
-* 创建AccessKey，弹窗点“继续使用AccessKey”
-* 购买资源（金额会显示为0），之后会默认选择“I/O后付费”，就成功了
-
-### 4.管理控制台
-* 管理控制台-大数据（数加）-机器学习-项目管理-开启GPU（这样一来就可以进行深度学习操作了）
-* 进入机器学习实验-创建空白实验-做你♂做的事情吧！
-* PS：基础的那些算法训练也是比较适合入门的，推荐试试
+# 更新日志
+## 2016.12.05
+***
+### 实现了下拉菜单的操作 [代码链接](https://github.com/kelisiya/Python-brains/blob/master/python%20brain/pyqt_test1.py)
+***
+## 2017.3.30
+***
+- ### 具有社团结构的网络(Networks with Community Structure)：
+   - 定义：对于一个图G而言，如果其中有一个完全子图（任意两个节点之间均存在边），节点数是k，那么这个完全子图就可称为一个k-clique。进而，如果两个k-clique之间存在k-1个共同的节点，那么就称这两个clique是“相邻”的。彼此相邻的这样一串clique构成最大集合，就可以称为一个社区，且社区是可以重叠的；
+   - NetworkX库：k_ clique_ communities(G, k, cliques=None)[sorce](https://networkx.github.io/documentation/networkx-1.10/_modules/networkx/algorithms/community/kclique.html#k_clique_communities)
+   - 说明：Find k-clique communities in graph using the percolation method.
+   - 参数说明：
+		   - G:图（这里使用的是无向）
+		   - k：整型变量，最小团块的大小
+		   - cliques ： 预计算派系 
+   - 举例：
+			
+			>>>import networkx ax nx
+			>>>import matplotlib.pyplot as plt
+			>>> G = nx.complete_graph(5) #返回具有N个节点的完整图，节点标签为0~n-1
+			>>> K5 = nx.convert_node_labels_to_integers(G,first_label=2)
+			>>> G.add_edges_from(K5.edges())
+			>>> c = list(nx.k_clique_communities(G, 4))
+			>>> list(c[0])
+			[0, 1, 2, 3, 4, 5, 6]
+			>>> list(nx.k_clique_communities(G, 6))
+			[]
+			>>>nx.draw(G) #画出图G
+			>>>plt.show() #显示图像
+***
